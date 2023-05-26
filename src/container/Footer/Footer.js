@@ -20,7 +20,7 @@ const Footer = () => (
         <p className='p__opensans'>"Votre confort est notre priorité"</p>
         <img src={images.spoon} alt="spoon" className='spoon_img' style={{marginTop:15}}/>
         <div className='app__footer-links_icons'>
-          <FiFacebook />
+          <FiFacebook  href='https://web.facebook.com/'/>
           <FiInstagram/>
           <FiTwitter/>
         </div>
