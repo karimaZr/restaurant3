@@ -13,13 +13,12 @@ const Navbar = () => {
     <div className="app__navbar-logo">
       <img src={images.gericht} alt="app logo" />
     </div>
+    <div className='app__navbar-login'>
     <ul className='app__navbar-links'>
       <li className="p__opensans"><a href='#home'>Accueil</a></li>
       <li className="p__opensans"><a href='#about'>A propos</a></li>
       <li className="p__opensans"><a href='#contact'>Contact</a></li>
     </ul>
-    <div className='app__navbar-login'>
-      <a href='#login'  className="p__opensans" >Connexion/Enregistrer</a>
     </div>
     <div className="app__navbar-smallscreen">
       <GiHamburgerMenu color="#fff" fontSize={27} onClick={() => setToggleMenu(true)} />
