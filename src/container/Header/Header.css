@@ -1,0 +1,33 @@
+.app__header{
+    background-color: var(--color-black);
+}
+.app__header-h1{
+   font-family: var(--font-base);
+   color:var(--color-golden);
+   letter-spacing: 0.04em;
+   text-transform: uppercase;
+   line-height: 117px;
+   font-size:90px ;
+}
+.img_wrapper_img{
+ width: 100%;
+}
+.app__header-label{
+    font-family: var(--font-base);
+   color:var(--color-golden);
+   letter-spacing: 0.04em;
+   
+   line-height: 30px;
+   font-size:30px ;
+
+}
+.form-control{
+  background-color: #f2f2f2;
+  color: #333;
+  font-size: 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px 10px;
+  margin: 10px 0;
+}
+
