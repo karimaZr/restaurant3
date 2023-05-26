@@ -23,7 +23,7 @@ const Header = () => {
 
   const getZonesByCity = async (cityId) => {
     try {
-      const response = await axios.get(`/api/zones/city/${cityId}`);
+      const response = await axios.get(`https://near-9hdh.vercel.app/api/zones`);
       setZones(response.data);
     } catch (error) {
       console.error(error);
@@ -31,7 +31,7 @@ const Header = () => {
   };
   const getSpecialité = async () => {
     try {
-      const response = await axios.get(`/api/specialities`);
+      const response = await axios.get('https://near-9hdh.vercel.app/api/specialities');
       console.log(response);
       setSpecialité(response.data);
 
@@ -44,7 +44,7 @@ const Header = () => {
 
   const fetchCities = async () => {
     try {
-      const response = await axios.get('/api/cities/');
+      const response = await axios.get('https://near-9hdh.vercel.app/api/cities');
       setCities(response.data);
      
     } catch (error) {
@@ -85,7 +85,7 @@ const Header = () => {
 
 const getRestaurantsByZoneAndSpecialite = async () => {
   try {
-    const response = await axios.get(`/api/restos/zone/${zoneId}/specialites/${specialiteId}`);
+    const response = await axios.get('https://near-9hdh.vercel.app/api/restos');
     const coordinates = response.data.map((restaurant) => ({
       lat: restaurant.cords[0], // Assuming the latitude is at index 0
       lng: restaurant.cords[1], // Assuming the longitude is at index 1
