@@ -10,7 +10,7 @@ const Card = ({ image, name, adresse, description, site }) => {
           <h5 className="card-title">{name}</h5>
           <p className="card-text">{description}</p>
           <p className="card-text">Adresse: {adresse}</p>
-          <a href={site} className="card-link">Go somewhere</a>
+          <a href={site} className="card-link">Plus de détails</a>
         </div>
       </div>
     </div>

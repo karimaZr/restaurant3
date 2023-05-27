@@ -148,22 +148,22 @@ const getRestaurantsByZoneAndSpecialite = async () => {
                 <option key={spécialité._id} value={spécialité._id}>{spécialité.name}</option>
               ))}
             </select>
-            {/* <div className="form-group-col-md-4"> */}
+            <div className="form-group-col-md-4">
               <label className="app__header-label">Restaurants</label>
               <br />
               <>
-                {/* <div className='container'>
+                <div className='container'>
                   <div className='row'>
                     {restaurants.map((restaurant) => (
                       <Card image={restaurant.image} name={restaurant.name} adresse={restaurant.adresse} 
-                      description={restaurant.description} site={restaurant.site}/>
+                      site={restaurant.site}/>
 
                     ))}
-                  </div> */}
+                  </div>
 
-                {/* </div> */}
+                </div>
               </>
-            {/* </div> */}
+            </div>
 
           
           </div>
