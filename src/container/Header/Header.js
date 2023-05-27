@@ -18,13 +18,15 @@ const Header = () => {
   const [restoImg, setImg] = useState([]);
   const [restoSite, setSite] = useState([]);
   const [cityCord, setCords] = useState([]);
+  const[restaurants,setRestaurants]=useState([]);
 
   
 
   const getZonesByCity = async (cityId) => {
     try {
-      const response = await axios.get(`https://near-9hdh.vercel.app/api/zones`);
-      setZones(response.data);
+      const response = await axios.get('https://near-9hdh.vercel.app/api/zones');
+      const zones = response.data.filter((zone) => zone.city === cityId);
+      setZones(zones);
     } catch (error) {
       console.error(error);
     }
@@ -54,12 +56,6 @@ const Header = () => {
 
   const handleCountry = (event) => {
     const id = event.target.value;
-    // Retrieve the selected city's coordinates
-    const selectedCity = city.find((city) => city._id === id);
-    const coordinates = selectedCity ? selectedCity.cords : [33.74059917546109, -7.238578523576559];
-    setCords(coordinates);
-    
-    // Fetch zones for the selected city
     setRestoCord([]);
     getZonesByCity(id);
   };
@@ -86,14 +82,21 @@ const Header = () => {
 const getRestaurantsByZoneAndSpecialite = async () => {
   try {
     const response = await axios.get('https://near-9hdh.vercel.app/api/restos');
-    const coordinates = response.data.map((restaurant) => ({
+    const filteredRestaurants = response.data.filter((restaurant) => {
+      return (
+        restaurant.zone === zoneId &&
+        restaurant.specialite === specialiteId
+      );
+    });
+    setRestaurants(filteredRestaurants);
+    const coordinates = filteredRestaurants.map((restaurant) => ({
       lat: restaurant.cords[0], // Assuming the latitude is at index 0
       lng: restaurant.cords[1], // Assuming the longitude is at index 1
     }));
-    const names = response.data.map((restaurant) => restaurant.name);
-    const addresses = response.data.map((restaurant) => restaurant.adresse);
-    const img = response.data.map((restaurant) => restaurant.image);
-    const site = response.data.map((restaurant) => restaurant.site);
+    const names = filteredRestaurants.map((restaurant) => restaurant.name);
+    const addresses = filteredRestaurants.map((restaurant) => restaurant.adresse);
+    const img = filteredRestaurants.map((restaurant) => restaurant.image);
+    const site = filteredRestaurants.map((restaurant) => restaurant.site);
     setRestoCord(coordinates);
     setImg(img);
     setRestoName(names);
@@ -105,7 +108,6 @@ const getRestaurantsByZoneAndSpecialite = async () => {
     console.error(error);
   }
 };
-
 
   useEffect(() => {
     if (zoneId && specialiteId) {
@@ -157,9 +159,9 @@ const getRestaurantsByZoneAndSpecialite = async () => {
                       description={restaurant.description} site={restaurant.site}/>
 
                     ))}
-                  </div>
+                  </div> */}
 
-                </div> */}
+                {/* </div> */}
               </>
             {/* </div> */}
 
